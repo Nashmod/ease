@@ -40,7 +40,11 @@ select {
 }
 
 .rar-form {
-	@apply grid grid-cols-2 gap-4;
+	@apply grid grid-cols-2 gap-x-4;
+}
+
+.rar-form p {
+	margin: 5px 0;
 }
 
 .col__1 {
