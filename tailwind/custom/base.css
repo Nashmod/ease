@@ -13,104 +13,10 @@
 */
 body {
 	@apply bg-background text-foreground font-sans;
-	font-family: "Graphik", sans-serif;
+	font-family: "Quicksand", sans-serif;
 }
 
-.font-ambit {
-	font-family: "Ambit", sans-serif;
-}
-
-.border__img img {
-	@apply !rounded-tr-3xl !rounded-br-3xl;
-}
-
-#nav_menu.nav__scrolled {
-	@apply !bg-white !shadow;
-}
-
-.swiper-button-next:after,
-.swiper-button-prev:after {
-	padding: 30px 40px;
-	border-radius: 9999px;
-	background: #000a446e;
-	color: white;
-}
-
-.industrial_blocks_section :is(h1) {
-	color: white;
-}
-
-.btn {
-	@apply inline-block px-10 py-3 text-sm font-semibold shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2;
-}
-
-.industrial__btn {
-	@apply ml-auto mt-2 block w-40 rounded-full bg-[#C5E6ED] text-[#000A44] shadow-sm hover:bg-[#C5E6ED];
-}
-
-.contact__section :is(p, h1, strong) {
-	color: white !important;
-}
-
-.header__btn__one {
-	@apply mt-2 mr-2 rounded-full bg-[#C5E6ED] text-[#000A44] shadow-sm hover:bg-[#000A44] hover:text-[#C5E6ED];
-}
-
-.header__btn__two {
-	@apply mt-2 rounded-full bg-[#000A44] text-white shadow-sm hover:bg-[#C5E6ED] hover:text-[#000A44];
-}
-
-a.see_more_btn {
-	color: #000a44;
-}
-
-.nav__expanded {
-	max-height: 40rem !important;
-	height: 100% !important;
-}
-
-.contact__column {
-	@apply border-white md:border-t-[1px];
-}
-
-#nav_menu:has(.nav__expanded) {
-	@apply bg-white;
-}
-
-footer h2 {
-	@apply text-lg font-light;
-}
-
-footer p {
-	@apply font-light;
-}
-
-.footer__grid {
-	grid-template-columns: auto auto auto auto;
-}
 .prose :where(img):not(:where([class~="not-prose"] *)) {
 	margin-top: 0em;
-	margin-bottom: 2em;
-}
-
-.eaze__form {
-	@apply grid grid-cols-2 gap-x-8;
-}
-
-.eaze__form :is(input, textarea) {
-	max-width: 100%;
-	width: 100%;
-	@apply border-x-0 border-b-2 border-t-0 border-[#B3B6C6] outline-none focus:border-[#161D44] focus:ring-0;
-}
-
-.eaze__form p {
-	margin: 0.25rem 0;
-}
-
-.eaze__submit__form {
-	@apply ml-auto w-40 cursor-pointer rounded-full border-none bg-[#161D44] px-10 py-3 text-sm font-semibold text-[#ffffff] hover:bg-[#1e285d];
-}
-
-.eaze__submit__form__wrapper {
-	@apply col-span-2 sm:col-span-1 sm:col-start-2;
+	margin-bottom: 0em;
 }
