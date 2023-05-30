@@ -20,3 +20,32 @@ body {
 	margin-top: 0em;
 	margin-bottom: 0em;
 }
+
+[type="text"],
+[type="email"],
+[type="url"],
+[type="password"],
+[type="number"],
+[type="date"],
+[type="datetime-local"],
+[type="month"],
+[type="search"],
+[type="tel"],
+[type="time"],
+[type="week"],
+[multiple],
+textarea,
+select {
+	width: 100%;
+}
+
+.rar-form {
+	@apply grid grid-cols-2 gap-4;
+}
+
+.col__1 {
+	@apply col-span-1;
+}
+.col__2 {
+	@apply col-span-2;
+}
