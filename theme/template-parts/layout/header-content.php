@@ -12,9 +12,9 @@ use ObsidianLab\Tailwind_Walker;
 ?>
 
 <!-- #site-navigation -->
-<nav class="bg-[#171926de] absolute top-0 left-0 z-10 w-full">
+<nav class="bg-[#171926de] py-8 absolute top-0 left-0 z-10 w-full">
 	<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-		<div class="relative flex h-16 items-center justify-between">
+		<div class="relative flex gap-x-12 h-16 items-center justify-between">
 			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
 				<!-- Mobile menu button-->
 				<button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
@@ -37,28 +37,28 @@ use ObsidianLab\Tailwind_Walker;
 					</svg>
 				</button>
 			</div>
-			<div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+			<div class="flex flex-1 items-center justify-center sm:justify-start">
 				<div class="flex flex-shrink-0 items-center">
 					<a href="<?= esc_url(home_url("/")) ?>" title="<?= esc_attr(get_bloginfo("name")) ?>">
-						<img id="site_logo" class="block h-12 w-auto" src="<?= esc_url(wp_get_attachment_image_src(get_theme_mod("custom_logo"), "full")[0] ?? "") ?>" alt="<?= esc_attr(get_bloginfo("name")) ?>">
-						<img id="site_logo_dark" class="hidden h-12 w-auto" src="<?= esc_url(get_theme_mod("logo_dark")) ?>" alt="<?= esc_attr(get_bloginfo("name")) ?>">
+						<img id="site_logo" class="block h-14 w-auto" src="<?= esc_url(wp_get_attachment_image_src(get_theme_mod("custom_logo"), "full")[0] ?? "") ?>" alt="<?= esc_attr(get_bloginfo("name")) ?>">
+						<img id="site_logo_dark" class="hidden h-14 w-auto" src="<?= esc_url(get_theme_mod("logo_dark")) ?>" alt="<?= esc_attr(get_bloginfo("name")) ?>">
 					</a>
 				</div>
-				<div class="hidden sm:ml-6 sm:block">
+				<div class="hidden sm:ml-auto sm:block">
 					<div class="flex space-x-4">
 						<?php wp_nav_menu([
 							"theme_location" => "menu-header",
 							"menu_id" => "header-menu",
 							"container" => "",
 							"items_wrap" => '%3$s',
-							"link_class" => "text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium",
+							"link_class" => "text-white hover:text-white rounded-md px-3 py-2 text-lg font-medium",
 							"walker" => new Tailwind_Walker(),
 						]); ?>
 						<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
 					</div>
 				</div>
 			</div>
-			<button class="rounded-md bg-[#00ADCC] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Contact us</button>
+			<button class="hidden md:block text-lg rounded-md bg-[#00ADCC] px-12 py-3 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Contact us</button>
 		</div>
 	</div>
 

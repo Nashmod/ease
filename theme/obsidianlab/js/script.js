@@ -22,26 +22,3 @@ jQuery(document).ready(function ($) {
 		$('#mobile-menu').toggleClass('-translate-y-full');
 	});
 });
-
-document.addEventListener('DOMContentLoaded', function () {
-	const controller = new ScrollMagic.Controller();
-
-	// scrollingImages
-	let scrollingImages = Array.prototype.slice.call(
-		document.querySelectorAll('.scrolling__image')
-	);
-	let self = this;
-
-	scrollingImages.forEach(function (self) {
-		// build a tween
-		let fadeInBottom = TweenMax.from(self, 1, { y: 100 });
-		// build a scene
-		new ScrollMagic.Scene({
-			triggerElement: self,
-			duration: 2000,
-			offset: -500,
-		})
-			.setTween(fadeInBottom)
-			.addTo(controller);
-	});
-});

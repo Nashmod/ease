@@ -11,9 +11,86 @@
  * `theme.json` file and is applied both to the frontend and in the block
  * editor.
 */
+
 body {
 	@apply bg-background text-foreground font-sans;
 	font-family: "Quicksand", sans-serif;
+}
+
+a,
+abbr,
+acronym,
+address,
+article,
+aside,
+b,
+big,
+blockquote,
+body,
+button,
+caption,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dt,
+em,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+ins,
+kbd,
+label,
+legend,
+li,
+main,
+mark,
+nav,
+object,
+option,
+p,
+pre,
+q,
+s,
+samp,
+section,
+small,
+span,
+strong,
+sub,
+summary,
+sup,
+table,
+td,
+textarea,
+th,
+time,
+tr,
+tt,
+u,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: "Quicksand", sans-serif !important;
+}
+
+.montana-font :is(h1, h2, h3, h4, h5, h6) {
+	font-family: "Montana", sans-serif !important;
 }
 
 .prose :where(img):not(:where([class~="not-prose"] *)) {

@@ -3,3 +3,13 @@
  *
  * These will be added immediately before Tailwind’s `base` layer.
  */
+@font-face {
+	font-family: "Montana";
+	src: url("/wp-content/themes/obsidianlab/theme/fonts/Montana.woff2")
+			format("woff2"),
+		url("/wp-content/themes/obsidianlab/theme/fonts/Montana.woff")
+			format("woff");
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
