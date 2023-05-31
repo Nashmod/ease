@@ -156,21 +156,6 @@ require get_template_directory() . '/inc/template-functions.php';
  */
 require get_template_directory() . "/obsidianlab/obsidianlab.php";
 
-add_image_size('ease-banner', 250, 250, false);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function rental_slider_shortcode($atts)
 {
 	/**
@@ -205,7 +190,7 @@ function rental_slider_shortcode($atts)
 							<img src="<?= $image ?>">
 						</div>
 						<h2 class="m-0 mb-4 text-xl text-[#222222]"><?= get_the_title() ?></h2>
-						<a class="rounded-md text-center bg-[#4852DF] px-12 py-3 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Contact to Reserve</a>
+						<a href="#contact" class="rounded-md text-center bg-[#4852DF] px-12 py-3 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Contact to Reserve</a>
 					</div>
 				</div>
 			<?
