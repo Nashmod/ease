@@ -88,8 +88,25 @@ h6 {
 	font-family: "Quicksand", sans-serif !important;
 }
 
+.montana-font,
 .montana-font :is(h1, h2, h3, h4, h5, h6) {
 	font-family: "Montana", sans-serif !important;
+}
+
+.banner__title,
+.center {
+	@apply !text-center;
+}
+
+.banner__txt {
+	text-shadow: 2px 3px 8px #20242e;
+	font-family: "Quicksand", sans-serif !important;
+	@apply !my-2 !text-center !leading-10;
+}
+
+#slider-1-slide-1-layer-13 > img {
+	-webkit-filter: drop-shadow(5px 5px 5px #222);
+	filter: drop-shadow(5px 5px 5px #222);
 }
 
 .prose :where(img):not(:where([class~="not-prose"] *)) {
