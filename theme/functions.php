@@ -171,7 +171,7 @@ add_image_size('ease-banner', 250, 250, false);
 
 
 
-function residential_slider_shortcode($atts)
+function rental_slider_shortcode($atts)
 {
 	/**
 	 * Setup query to show the ‘services’ post type with ‘8’ posts.
@@ -179,7 +179,7 @@ function residential_slider_shortcode($atts)
 	 */
 	ob_start();
 	$args = [
-		"post_type" => "residential",
+		"post_type" => "rental",
 		"post_status" => "publish",
 		"posts_per_page" => -1,
 		"orderby" => "date",
@@ -200,7 +200,7 @@ function residential_slider_shortcode($atts)
 	</style>
 
 	<!-- Slider main container -->
-	<div class="residentialSwiper swiper">
+	<div class="rentalSwiper swiper">
 		<!-- Additional required wrapper -->
 		<div class="swiper-wrapper">
 
@@ -264,7 +264,7 @@ function residential_slider_shortcode($atts)
 	wp_reset_postdata();
 	return ob_get_clean();
 }
-add_shortcode("residential_slider", "residential_slider_shortcode");
+add_shortcode("rental_slider", "rental_slider_shortcode");
 
 function brands_slider_shortcode($atts)
 {
@@ -274,7 +274,7 @@ function brands_slider_shortcode($atts)
 	 */
 	ob_start();
 	$args = [
-		"post_type" => "brand",
+		"post_type" => "",
 		"post_status" => "publish",
 		"posts_per_page" => -1,
 		"orderby" => "title",

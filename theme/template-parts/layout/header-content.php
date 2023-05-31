@@ -15,7 +15,28 @@ use ObsidianLab\Tailwind_Walker;
 <nav class="bg-[#171926de] py-8 absolute top-0 left-0 z-10 w-full">
 	<div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
 		<div class="relative flex gap-x-12 h-16 items-center justify-between">
-			<div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+			<div class="flex flex-1 items-center justify-center sm:justify-start">
+				<div class="flex flex-shrink-0 items-center">
+					<a href="<?= esc_url(home_url("/")) ?>" title="<?= esc_attr(get_bloginfo("name")) ?>">
+						<img id="site_logo" class="block h-14 w-auto" src="<?= esc_url(wp_get_attachment_image_src(get_theme_mod("custom_logo"), "full")[0] ?? "") ?>" alt="<?= esc_attr(get_bloginfo("name")) ?>">
+						<img id="site_logo_dark" class="hidden h-14 w-auto" src="<?= esc_url(get_theme_mod("logo_dark")) ?>" alt="<?= esc_attr(get_bloginfo("name")) ?>">
+					</a>
+				</div>
+				<div class="hidden sm:ml-auto md:block">
+					<div class="flex space-x-4">
+						<?php wp_nav_menu([
+							"theme_location" => "menu-header",
+							"menu_id" => "header-menu",
+							"container" => "",
+							"items_wrap" => '%3$s',
+							"link_class" => "text-white hover:text-white rounded-md px-3 py-2 text-lg font-medium",
+							"walker" => new Tailwind_Walker(),
+						]); ?>
+						<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+					</div>
+				</div>
+			</div>
+			<div class="flex items-center md:hidden">
 				<!-- Mobile menu button-->
 				<button type="button" class="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white" aria-controls="mobile-menu" aria-expanded="false">
 					<span class="sr-only">Open main menu</span>
@@ -37,33 +58,12 @@ use ObsidianLab\Tailwind_Walker;
 					</svg>
 				</button>
 			</div>
-			<div class="flex flex-1 items-center justify-center sm:justify-start">
-				<div class="flex flex-shrink-0 items-center">
-					<a href="<?= esc_url(home_url("/")) ?>" title="<?= esc_attr(get_bloginfo("name")) ?>">
-						<img id="site_logo" class="block h-14 w-auto" src="<?= esc_url(wp_get_attachment_image_src(get_theme_mod("custom_logo"), "full")[0] ?? "") ?>" alt="<?= esc_attr(get_bloginfo("name")) ?>">
-						<img id="site_logo_dark" class="hidden h-14 w-auto" src="<?= esc_url(get_theme_mod("logo_dark")) ?>" alt="<?= esc_attr(get_bloginfo("name")) ?>">
-					</a>
-				</div>
-				<div class="hidden sm:ml-auto sm:block">
-					<div class="flex space-x-4">
-						<?php wp_nav_menu([
-							"theme_location" => "menu-header",
-							"menu_id" => "header-menu",
-							"container" => "",
-							"items_wrap" => '%3$s',
-							"link_class" => "text-white hover:text-white rounded-md px-3 py-2 text-lg font-medium",
-							"walker" => new Tailwind_Walker(),
-						]); ?>
-						<!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-					</div>
-				</div>
-			</div>
-			<button class="hidden md:block text-lg rounded-md bg-[#00ADCC] px-12 py-3 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Contact us</button>
+			<a href="#contact" class="hidden md:block text-lg rounded-md bg-[#00ADCC] px-12 py-3 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Contact us</a>
 		</div>
 	</div>
 
 	<!-- Mobile menu, show/hide based on menu state. -->
-	<div class="sm:hidden" id="mobile-menu">
+	<div class="md:hidden transition-all duration-300 ease-in-out overflow-hidden h-0" id="mobile-menu">
 		<div class="space-y-1 px-2 pb-3 pt-2">
 			<div class="flex space-x-4">
 				<?php wp_nav_menu([

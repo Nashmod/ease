@@ -19,6 +19,6 @@ jQuery(document).ready(function ($) {
 	}
 
 	$('[aria-controls="mobile-menu"]').on('click', function () {
-		$('#mobile-menu').toggleClass('-translate-y-full');
+		$('#mobile-menu').toggleClass('h-0 h-100');
 	});
 });

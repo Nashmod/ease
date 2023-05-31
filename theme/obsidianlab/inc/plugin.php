@@ -236,7 +236,8 @@ class Plugin
         */
 
         wp_enqueue_script('obsidianlab-custom-script', get_template_directory_uri() . '/obsidianlab/js/script.js', array('jquery'));
-        wp_enqueue_script('gsap', '//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.4/TweenMax.min.js', array('jquery'));
+        wp_enqueue_script('swiper-script', 'https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js', array('jquery'));
+        wp_enqueue_style('swiper-style', ' https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css', array('jquery'));
         wp_enqueue_style('quicksand-font', 'https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;700&display=swap');
     }
 

@@ -67,7 +67,6 @@ s,
 samp,
 section,
 small,
-span,
 strong,
 sub,
 summary,
@@ -124,9 +123,49 @@ select {
 	margin: 5px 0;
 }
 
+.rar-form label {
+	@apply inline-block w-full rounded-md bg-[#E6E7F0] pt-4 pl-4 text-sm text-[#161D44];
+}
+
+.rar-form label > span:first-child {
+	@apply text-red-500;
+}
+
+.rar-form :is(input, textarea, select) {
+	@apply rounded-md border-none bg-[#E6E7F0] px-0 outline-none focus:ring-transparent;
+}
+
+.col {
+	@apply rounded-md bg-[#E6E7F0];
+}
+
 .col__1 {
 	@apply col-span-1;
 }
 .col__2 {
 	@apply col-span-2;
+}
+
+.center__txt {
+	@apply text-center;
+}
+
+.wpcf7-spinner {
+	@apply absolute;
+}
+
+.wpcf7-form-control[type="submit"] {
+	@apply inline-block cursor-pointer rounded-md bg-[#00ADCC] px-8 py-3 text-sm font-semibold text-white hover:bg-indigo-500;
+}
+
+.full__w__right {
+	@apply lg:ml-auto lg:max-w-[650px];
+}
+
+.full__w__left {
+	@apply lg:mr-auto lg:max-w-[650px];
+}
+
+.cstm__gap .elementor-container {
+	@apply gap-16;
 }
