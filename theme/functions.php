@@ -187,17 +187,6 @@ function rental_slider_shortcode($atts)
 	];
 	$loop = new WP_Query($args);
 ?>
-	<style>
-		.card {
-			max-width: 340px;
-		}
-
-		.card .image-box img {
-			width: 100%;
-			height: 100%;
-			border-radius: 24px;
-		}
-	</style>
 
 	<!-- Slider main container -->
 	<div class="rentalSwiper swiper">
@@ -210,11 +199,13 @@ function rental_slider_shortcode($atts)
 			?>
 
 				<!-- Slides -->
-				<div class="card swiper-slide ">
-					<div class="image-box relative group">
-						<img src="<?= $image ?>">
-						<h2 class="absolute text-3xl text-white bottom-3 left-9"><?= get_the_title() ?></h2>
-						<a href="#" class="opacity-0 group-hover:opacity-100 absolute bg-[#C5E6ED] text-[#000A44] -bottom-5 -right-5 border rounded-3xl px-12 py-2 transition-all ease-in duration-100"> <?= __("SHOP NOW", 'obsidianlab') ?></a>
+				<div class="swiper-slide">
+					<div class="card">
+						<div class="image-box relative group">
+							<img src="<?= $image ?>">
+						</div>
+						<h2 class="m-0 mb-4 text-xl text-[#222222]"><?= get_the_title() ?></h2>
+						<a class="rounded-md text-center bg-[#4852DF] px-12 py-3 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Contact to Reserve</a>
 					</div>
 				</div>
 			<?
@@ -231,7 +222,7 @@ function rental_slider_shortcode($atts)
 	</div>
 
 	<script>
-		const swiper = new Swiper('.residentialSwiper', {
+		const swiper = new Swiper('.rentalSwiper', {
 			direction: 'horizontal',
 			spaceBetween: 15,
 			slidesPerView: 1.5,
@@ -266,7 +257,7 @@ function rental_slider_shortcode($atts)
 }
 add_shortcode("rental_slider", "rental_slider_shortcode");
 
-function brands_slider_shortcode($atts)
+function testimonial_slider_shortcode($atts)
 {
 	/**
 	 * Setup query to show the ‘services’ post type with ‘8’ posts.
@@ -274,7 +265,7 @@ function brands_slider_shortcode($atts)
 	 */
 	ob_start();
 	$args = [
-		"post_type" => "",
+		"post_type" => "testimonial",
 		"post_status" => "publish",
 		"posts_per_page" => -1,
 		"orderby" => "title",
@@ -284,31 +275,16 @@ function brands_slider_shortcode($atts)
 ?>
 	<style>
 		.brand__card {
-			background-color: #F9F9F9;
 			max-width: 398px;
-			border-radius: 24px;
 		}
 
-		.brand__card .image-box {
-			background-color: #EDE9E9;
-			border-radius: 24px 24px 0 0;
-
-		}
-
-		.brand__card .image-box img {
-			width: 100%;
-			height: 100%;
-			margin: 0 0 0 0;
-			padding: 75px 40px;
-		}
-
-		.brandSwiper {
+		.testimonialSwiper {
 			padding-bottom: 30px !important;
 		}
 	</style>
 
 	<!-- Slider main container -->
-	<div class="brandSwiper swiper" dir="rtl">
+	<div class="testimonialSwiper swiper" dir="rtl">
 		<!-- Additional required wrapper -->
 		<div class="swiper-wrapper" dir="rtl">
 
@@ -318,12 +294,17 @@ function brands_slider_shortcode($atts)
 			?>
 
 				<!-- Slides -->
-				<div class="brand__card swiper-slide ">
-					<div class="image-box relative group">
-						<img style="max-width: 400px;" src="<?= $image ?>">
+				<div class="brand__card swiper-slide bg-[#E6E7F0] rounded-md">
+					<div class="h-slider-item flex-none md:pb-4  p-8 ">
+						<div class="flex content-center justify-end flex-wrap">
+							<div class="flex flex-col self-center items-end">
+								<h3 class="font-bold text-[#171926] text-lg leading-none mb-1 mt-0"><?= the_title() ?></h3>
+								<p class="text-[0.700rem] leading-none m-0 mt-2">March 9, 2023</p>
+							</div>
+							<img class="inline-block !h-12 !w-12 !rounded-full mr-4" src="<?= $image ?>" alt="">
+							<div class="text-[#171926] text-sm mt-2 mb-8 text-left"><?= the_content() ?></div>
+						</div>
 					</div>
-					<a href="#" class="text-[#000A44] flex border-b-[1px] justify-between items-center flex-row-reverse text-left px-5 py-2 cursor-pointer"><?= __("See Brochure", "obsidianlab") ?><i class="fa-solid fa-chevron-right"></i></a>
-					<a href="#" class="text-[#000A44] flex justify-between items-center flex-row-reverse text-left px-5 py-2 cursor-pointer"><?= __("See Products", "obsidianlab") ?><i class="fa-solid fa-chevron-right"></i></a>
 				</div>
 			<?
 			endwhile;
@@ -339,7 +320,7 @@ function brands_slider_shortcode($atts)
 	</div>
 
 	<script>
-		const brandSwiper = new Swiper('.brandSwiper', {
+		const testimonialSwiper = new Swiper('.testimonialSwiper', {
 			direction: 'horizontal',
 			spaceBetween: 30,
 			slidesPerView: 1.5,
@@ -373,177 +354,4 @@ function brands_slider_shortcode($atts)
 	wp_reset_postdata();
 	return ob_get_clean();
 }
-add_shortcode("brand_slider", "brands_slider_shortcode");
-
-
-function load_map_shortcode($atts)
-{
-	ob_start();
-?>
-	<style>
-		/* Set the size of the div element that contains the map */
-		#map,
-		.gm-style {
-			height: 400px;
-			/* The height is 400 pixels */
-			width: 100%;
-			/* The width is the width of the web page */
-			border-radius: 24px;
-		}
-	</style>
-	<div id="map"></div>
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBb2ISRyMv7OrWzF6KQ5UDexeR25g-7tUk&callback=initMap&v=weekly" defer></script>
-	<script>
-		// Initialize and add the map
-		function initMap() {
-			// The location of Uluru
-			const uluru = {
-				lat: 12.109582,
-				lng: -68.9033314
-			};
-			// The map, centered at Uluru
-			const map = new google.maps.Map(document.getElementById("map"), {
-				zoom: 16,
-				center: uluru,
-				disableDefaultUI: true,
-				gestureHandling: 'none',
-			});
-			// The marker, positioned at Uluru
-			const marker = new google.maps.Marker({
-				position: uluru,
-				map: map,
-				icon: 'wp-content/uploads/2023/03/marker26x37.png',
-			});
-			var styles = [{
-				featureType: "poi",
-				stylers: [{
-					visibility: "off"
-				}]
-			}];
-			map.setOptions({
-				styles: styles
-			});
-
-		}
-
-
-		window.initMap = initMap;
-	</script>
-
-<?
-	return ob_get_clean();
-}
-add_shortcode("load_map", "load_map_shortcode");
-
-function industrial_blocks_shortcode($atts)
-{
-	/**
-	 * Setup query to show the ‘services’ post type with ‘8’ posts.
-	 * Output the title with an excerpt.
-	 */
-	ob_start();
-	$args = [
-		"post_type" => "industrial",
-		"post_status" => "publish",
-		"posts_per_page" => -1,
-		"orderby" => "title",
-		"order" => "ASC",
-	];
-	$loop = new WP_Query($args);
-?>
-
-	<style>
-		.industrial__card {
-			height: 34rem;
-			perspective: 150rem;
-			position: relative;
-			/* max-width: 400px; */
-			box-shadow: none;
-			background: none;
-		}
-
-		.industrial__card img {
-			width: 100%;
-			height: 100%;
-			margin: 0 0 0 0;
-		}
-
-		.card-side {
-			height: 33rem;
-			border-radius: 15px;
-			transition: all 0.8s ease;
-			backface-visibility: hidden;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 100%;
-			padding: 2rem;
-			color: white;
-		}
-
-		.card-side.back {
-			transform: rotateY(-180deg);
-			background-color: #77D1FF;
-		}
-
-		.card-side.front {
-			background-color: #0093E9;
-		}
-
-		.industrial__card:hover .card-side.front {
-			transform: rotateY(180deg);
-		}
-
-		.industrial__card:hover .card-side.back {
-			transform: rotateY(0deg);
-		}
-
-		.industrial__header {
-			writing-mode: vertical-rl;
-			text-orientation: mixed;
-		}
-	</style>
-
-	<div class="grid grid-cols-1 lg:grid-cols-2 auto-rows-auto gap-8">
-
-		<?
-		while ($loop->have_posts()) :
-			$loop->the_post();
-			$image = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_id()), "single-post-thumbnail")[0] ?? "";
-		?>
-
-			<div class="industrial__card group">
-				<div style="background-image: url(<?= $image ?>); background-size: cover;" class="card-side front">
-					<h2 class="absolute text-3xl text-white bottom-3 left-9"><?= get_the_title() ?></h2>
-				</div>
-				<div class="card-side back">
-					<h2 class="industrial__header absolute right-5 top-5 text-white text-5xl m-0 w-max origin-top-right"><?= get_the_title() ?></h2>
-					<a href="#" class="absolute opacity-0 group-hover:opacity-100 bg-[#C5E6ED] text-[#000A44] -bottom-5 -right-5 border rounded-3xl px-12 py-2 transition-all ease-in duration-100 delay-200 z-50"> <?= __("SHOP NOW", 'obsidianlab') ?></a>
-				</div>
-			</div>
-		<?
-		endwhile;
-		?>
-	</div>
-<?
-	wp_reset_postdata();
-	return ob_get_clean();
-}
-add_shortcode("industrial_blocks", "industrial_blocks_shortcode");
-
-function btn_shortcode($atts)
-{
-	$default = array(
-		'class' => '',
-		'link' => '',
-		'text' => '',
-	);
-
-	$a = shortcode_atts($default, $atts);
-	ob_start();
-?>
-	<a href="<?= $a['link'] ?>" class="btn <?= $a['class'] ?>"><?= $a['text'] ?></a>
-<?
-	return ob_get_clean();
-}
-add_shortcode('cstm_button', 'btn_shortcode');
+add_shortcode("testimonial_slider", "testimonial_slider_shortcode");

@@ -169,3 +169,27 @@ select {
 .cstm__gap .elementor-container {
 	@apply gap-16;
 }
+
+.swiper-slide {
+	@apply my-10;
+}
+
+.card {
+	@apply p-8;
+	background-color: #e6e7f0;
+	max-width: 430px;
+	aspect-ratio: 1 / 2;
+}
+
+.card a {
+	@apply block;
+}
+
+.card .image-box img {
+	border-radius: 24px;
+	@apply h-full w-full;
+}
+
+.swiper-pagination-bullet-active {
+	@apply !bg-[#F7D301];
+}
