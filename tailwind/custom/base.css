@@ -192,7 +192,7 @@ select {
 }
 
 .card {
-	@apply p-8;
+	@apply flex flex-col p-8;
 	background-color: #e6e7f0;
 	max-width: 430px;
 	aspect-ratio: 1 / 2;
@@ -200,6 +200,10 @@ select {
 
 .card a {
 	@apply block;
+}
+
+.card p {
+	@apply m-0;
 }
 
 .card .image-box img {

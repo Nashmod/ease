@@ -181,6 +181,14 @@ function rental_slider_shortcode($atts)
 			<? while ($loop->have_posts()) :
 				$loop->the_post();
 				$image = wp_get_attachment_image_src(get_post_thumbnail_id(get_the_id()), "single-post-thumbnail")[0] ?? "";
+				$pod = pods("rental", get_the_id());
+				$passengers = $pod->field("passengers");
+				$transmission = $pod->field("transmission_type");
+				$car_doors = $pod->field("car_doors");
+				$luggages = $pod->field("luggages");
+				$amenities = $pod->field("amenities");
+
+
 			?>
 
 				<!-- Slides -->
@@ -189,8 +197,77 @@ function rental_slider_shortcode($atts)
 						<div class="image-box relative group">
 							<img src="<?= $image ?>">
 						</div>
-						<h2 class="m-0 mb-4 text-xl text-[#222222]"><?= get_the_title() ?></h2>
-						<a href="#contact" class="rounded-md text-center bg-[#4852DF] px-12 py-3 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Contact to Reserve</a>
+						<div class="grid grid-cols-2 gap-y-4">
+							<h2 class="m-0 mb-4 text-xl text-[#222222] col-span-2"><?= get_the_title() ?></h2>
+
+							<? if ($passengers) : ?>
+
+								<div class="col-span-1">
+									<div class="flex flex-1 flex-row self-center text-gray-500 text-sm">
+										<img class="max-h-5 mr-3" src="/wp-content/uploads/2023/06/car-door.png">
+										<span class="self-center text-sm"><?= $passengers ?></span>
+									</div>
+								</div>
+
+							<? endif; ?>
+
+
+							<? if ($transmission) : ?>
+
+								<div class="col-span-1">
+									<div class="flex flex-1 flex-row self-center text-gray-500 text-sm">
+										<img class="max-h-5 mr-3" src="/wp-content/uploads/2023/06/Gear-Icon.png">
+										<span class="self-center text-sm"><?= $transmission ?></span>
+									</div>
+								</div>
+
+							<? endif; ?>
+
+
+							<? if ($car_doors) : ?>
+
+								<div class="col-span-1">
+									<div class="flex flex-1 flex-row self-center text-gray-500 text-sm">
+										<img class="max-h-5 mr-3" src="/wp-content/uploads/2023/06/people.png">
+										<span class="self-center text-sm"><?= $car_doors ?></span>
+									</div>
+								</div>
+
+							<? endif; ?>
+
+							<? if ($luggages) : ?>
+
+								<div class="col-span-1">
+									<div class="flex flex-1 flex-row self-center text-gray-500 text-sm">
+										<img class="max-h-5 mr-3" src="/wp-content/uploads/2023/06/suitcase.png">
+										<span class="self-center text-sm"><?= $luggages ?></span>
+									</div>
+								</div>
+
+							<? endif; ?>
+
+
+							<? if ($amenities) : ?>
+								<section class="col-span-2">
+									<div class="grid grid-cols-2 auto-rows-auto gap-2">
+										<? if (is_string($amenities)) : ?>
+											<div class="amenities__container">
+												<p class="amenities__item"><?= $amenities ?></p>
+											</div>
+										<? else : ?>
+											<? foreach ($amenities as $amenitie) {
+											?>
+												<div class="amenities__container">
+													<p class="amenities__item"><?= $amenitie ?></p>
+												</div>
+											<?
+											} ?>
+										<? endif; ?>
+									</div>
+								</section>
+							<? endif; ?>
+						</div>
+						<a href="#contact" class=" mt-auto rounded-md text-center bg-[#4852DF] px-12 py-3 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Contact to Reserve</a>
 					</div>
 				</div>
 			<?
