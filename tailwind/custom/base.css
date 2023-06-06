@@ -176,11 +176,11 @@ select {
 }
 
 .full__w__right {
-	@apply lg:ml-auto lg:max-w-[650px];
+	@apply lg:ml-auto lg:max-w-[438px];
 }
 
 .full__w__left {
-	@apply lg:mr-auto lg:max-w-[650px];
+	@apply lg:mr-auto lg:max-w-[438px];
 }
 
 .cstm__gap .elementor-container {
@@ -209,13 +209,10 @@ select {
 }
 
 .card {
-	@apply flex h-full flex-col;
+	@apply flex h-full flex-col p-8;
 }
 
 .swiper-slide {
 	height: auto !important;
-	align-self: stretch;
-	@apply flex flex-col p-8;
 	background-color: #e6e7f0;
-	min-width: 430px;
 }
