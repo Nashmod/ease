@@ -311,8 +311,11 @@ function rental_slider_shortcode($atts)
 			},
 			// Responsive breakpoints
 			breakpoints: {
-				// when window width is >= 320px
-				667: {
+				676: {
+					slidesPerView: 2,
+					spaceBetween: 30,
+				},
+				1400: {
 					slidesPerView: 2.5,
 					spaceBetween: 30,
 				},
