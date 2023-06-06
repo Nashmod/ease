@@ -191,13 +191,6 @@ select {
 	@apply my-10;
 }
 
-.card {
-	@apply flex flex-col p-8;
-	background-color: #e6e7f0;
-	max-width: 430px;
-	aspect-ratio: 1 / 2;
-}
-
 .card a {
 	@apply block;
 }
@@ -213,4 +206,16 @@ select {
 
 .swiper-pagination-bullet-active {
 	@apply !bg-[#F7D301];
+}
+
+.card {
+	@apply flex h-full flex-col;
+}
+
+.swiper-slide {
+	height: auto !important;
+	align-self: stretch;
+	@apply flex flex-col p-8;
+	background-color: #e6e7f0;
+	min-width: 430px;
 }

@@ -188,7 +188,12 @@ function rental_slider_shortcode($atts)
 				$luggages = $pod->field("luggages");
 				$amenities = $pod->field("amenities");
 
-
+				$icon_list = [
+					"ac" => ["name" => "Air Conditioner", "link" => "/wp-content/uploads/2023/06/air-conditioner.png"],
+					"usb" => ["name" => "USB-Port", "link" => "/wp-content/uploads/2023/06/usb-port.png"],
+					"sunroof" => ["name" => "Sunroof", "link" => "/wp-content/uploads/2023/06/usb-port.png"],
+					"buc" => ["name" => "Back up camera", "link" => "/wp-content/uploads/2023/06/camera.png"],
+				];
 			?>
 
 				<!-- Slides -->
@@ -197,7 +202,7 @@ function rental_slider_shortcode($atts)
 						<div class="image-box relative group">
 							<img src="<?= $image ?>">
 						</div>
-						<div class="grid grid-cols-2 gap-y-4">
+						<div class="grid grid-cols-2 gap-y-4 mb-4">
 							<h2 class="m-0 mb-4 text-xl text-[#222222] col-span-2"><?= get_the_title() ?></h2>
 
 							<? if ($passengers) : ?>
@@ -249,16 +254,18 @@ function rental_slider_shortcode($atts)
 
 							<? if ($amenities) : ?>
 								<section class="col-span-2">
-									<div class="grid grid-cols-2 auto-rows-auto gap-2">
+									<div class="grid grid-cols-2 auto-rows-auto gap-y-4">
 										<? if (is_string($amenities)) : ?>
-											<div class="amenities__container">
-												<p class="amenities__item"><?= $amenities ?></p>
+											<div class="flex flex-1 flex-row self-center text-gray-500 text-sm">
+												<img class="max-h-5 mr-3" src="<?= $icon_list[$amenitie]["link"] ?>">
+												<span class="self-center text-sm"><?= $icon_list[$amenitie]["name"] ?></span>
 											</div>
 										<? else : ?>
 											<? foreach ($amenities as $amenitie) {
 											?>
-												<div class="amenities__container">
-													<p class="amenities__item"><?= $amenitie ?></p>
+												<div class="flex flex-1 flex-row self-center text-gray-500 text-sm">
+													<img class="max-h-5 mr-3" src="<?= $icon_list[$amenitie]["link"] ?>">
+													<span class="self-center text-sm"><?= $icon_list[$amenitie]["name"] ?></span>
 												</div>
 											<?
 											} ?>
