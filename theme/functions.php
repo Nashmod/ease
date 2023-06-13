@@ -209,7 +209,7 @@ function rental_slider_shortcode($atts)
 
 								<div class="col-span-1">
 									<div class="flex flex-1 flex-row self-center text-gray-500 text-sm">
-										<img class="max-h-5 mr-3" src="/wp-content/uploads/2023/06/car-door.png">
+										<img class="max-h-5 mr-3" src="/wp-content/uploads/2023/06/people.png">
 										<span class="self-center text-sm"><?= $passengers ?></span>
 									</div>
 								</div>
@@ -233,7 +233,7 @@ function rental_slider_shortcode($atts)
 
 								<div class="col-span-1">
 									<div class="flex flex-1 flex-row self-center text-gray-500 text-sm">
-										<img class="max-h-5 mr-3" src="/wp-content/uploads/2023/06/people.png">
+										<img class="max-h-5 mr-3" src="/wp-content/uploads/2023/06/car-door.png">
 										<span class="self-center text-sm"><?= $car_doors ?></span>
 									</div>
 								</div>
