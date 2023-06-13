@@ -21,4 +21,21 @@ jQuery(document).ready(function ($) {
 	$('[aria-controls="mobile-menu"]').on('click', function () {
 		$('#mobile-menu').toggleClass('h-0 h-100');
 	});
+
+	$('.services__img img').each(function (el) {
+		if (el == 0) return;
+		this.style.display = 'none';
+	});
+
+	const $toggleList = $('.elementor-toggle .elementor-toggle-item').on(
+		'click',
+		function () {
+			const index = $toggleList.index(this);
+			console.log(index);
+			$('.services__img img').each(function (el) {
+				if (el == index) return (this.style.display = 'block');
+				this.style.display = 'none';
+			});
+		}
+	);
 });
